@@ -1,0 +1,8 @@
+name = "d1-kysely-demo"
+main = "src/index.ts"
+compatibility_date = "2023-04-23"
+
+[[ d1_databases ]]
+binding = "DB"
+database_name = "users"
+database_id = "215c2e05-b888-4937-a2b8-1dea3a7c3cd5"
