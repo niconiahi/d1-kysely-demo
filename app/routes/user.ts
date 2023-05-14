@@ -18,14 +18,11 @@ interface Database {
 }
 
 export async function loader({ request, context }: LoaderArgs) {
-  console.log("loader ~ context:", context);
   const { searchParams } = new URL(request.url);
-  console.log("fetch ~ searchParams:", searchParams);
   const action = searchParams.get("action");
   const id = searchParams.get("id");
   const companyName = searchParams.get("company_name");
   const contactName = searchParams.get("contact_name");
-  console.log("loader ~ context.DB:", context.DB);
   const db = new Kysely<Database>({
     dialect: new D1Dialect({ database: context.DB }),
   });
@@ -42,7 +39,6 @@ export async function loader({ request, context }: LoaderArgs) {
           status: 400,
         });
       }
-      console.log("fetch ~ id:", id);
       const result = await db
         .selectFrom("users")
         .selectAll()
