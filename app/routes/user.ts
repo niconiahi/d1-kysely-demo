@@ -18,6 +18,7 @@ interface Database {
 }
 
 export async function loader({ request, context }: LoaderArgs) {
+  console.log("loader ~ context:", context);
   const { searchParams } = new URL(request.url);
   console.log("fetch ~ searchParams:", searchParams);
   const action = searchParams.get("action");
@@ -28,7 +29,6 @@ export async function loader({ request, context }: LoaderArgs) {
   const db = new Kysely<Database>({
     dialect: new D1Dialect({ database: context.DB }),
   });
-  console.log("loader ~ db:", db);
 
   switch (action) {
     case "get": {
