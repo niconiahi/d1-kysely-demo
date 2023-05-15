@@ -3,5 +3,5 @@ compatibility_flags = ["streams_enable_constructors"]
 
 [[d1_databases]]
 binding = "DB"
-database_name = "D1_KYSELY"
-database_id = "59df5d04-7d1c-4e66-afce-434e7ef1e502"
+database_name = "d1-kysely-demo"
+database_id = "0c7970d2-0ec2-4ece-ac1d-5654517c201e"
