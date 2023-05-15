@@ -19,7 +19,6 @@ interface Database {
 
 export async function loader({ request, context }: LoaderArgs) {
   const { searchParams } = new URL(request.url);
-  console.log("fetch ~ searchParams:", searchParams);
   const action = searchParams.get("action");
   const id = searchParams.get("id");
   const companyName = searchParams.get("company_name");
@@ -42,7 +41,6 @@ export async function loader({ request, context }: LoaderArgs) {
           status: 400,
         });
       }
-      console.log("fetch ~ id:", id);
       const result = await db
         .selectFrom("users")
         .selectAll()

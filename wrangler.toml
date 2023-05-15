@@ -1,7 +1,7 @@
 compatibility_date = "2022-04-05"
 compatibility_flags = ["streams_enable_constructors"]
 
-[[ d1_databases ]]
+[[d1_databases]]
 binding = "DB"
-database_name = "users"
-database_id = "215c2e05-b888-4937-a2b8-1dea3a7c3cd5"
+database_name = "D1_KYSELY"
+database_id = "59df5d04-7d1c-4e66-afce-434e7ef1e502"
