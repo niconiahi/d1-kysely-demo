@@ -23,9 +23,11 @@ export async function loader({ request, context }: LoaderArgs) {
   const id = searchParams.get("id");
   const companyName = searchParams.get("company_name");
   const contactName = searchParams.get("contact_name");
+  console.log("loader ~ context.DB:", context.DB);
   const db = new Kysely<Database>({
     dialect: new D1Dialect({ database: context.DB }),
   });
+  console.log("loader ~ db:", db);
 
   switch (action) {
     case "get": {

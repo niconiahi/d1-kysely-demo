@@ -7,6 +7,8 @@
     "start": "cross-env NODE_ENV=production npm run wrangler",
     "wrangler": "wrangler pages dev ./public",
     "postinstall": "remix setup cloudflare",
+    "db:setup": "wrangler d1 execute D1_KYSELY --file ./schema.sql",
+    "db:create": "wrangler d1 create D1_KYSELY",
     "dev": "run-p \"dev:*\"",
     "dev:remix": "remix watch",
     "dev:wrangler": "cross-env NODE_ENV=development npm run wrangler -- --d1=DB --persist"
