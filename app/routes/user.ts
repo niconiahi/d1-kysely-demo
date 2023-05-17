@@ -1,21 +1,5 @@
-import type { Generated } from "kysely";
-import { Kysely } from "kysely";
-import { D1Dialect } from "kysely-d1";
 import type { LoaderArgs } from "@remix-run/cloudflare";
-
-export interface Env {
-  DB: D1Database;
-}
-
-interface UserTable {
-  id: Generated<number>;
-  company_name: string;
-  contact_name: string;
-}
-
-interface Database {
-  users: UserTable;
-}
+import { getDb } from "~/utils/db.server";
 
 export async function loader({ request, context }: LoaderArgs) {
   const { searchParams } = new URL(request.url);
@@ -23,11 +7,7 @@ export async function loader({ request, context }: LoaderArgs) {
   const id = searchParams.get("id");
   const companyName = searchParams.get("company_name");
   const contactName = searchParams.get("contact_name");
-  console.log("loader ~ context.DB:", context.DB);
-  const db = new Kysely<Database>({
-    dialect: new D1Dialect({ database: context.DB }),
-  });
-  console.log("loader ~ db:", db);
+  const db = getDb(context);
 
   switch (action) {
     case "get": {
