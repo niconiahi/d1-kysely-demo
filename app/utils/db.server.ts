@@ -13,7 +13,7 @@ interface UserTable {
   contact_name: string;
 }
 
-interface Database {
+export interface Database {
   users: UserTable;
 }
 
